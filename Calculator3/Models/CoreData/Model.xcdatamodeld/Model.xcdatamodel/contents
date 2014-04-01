@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="ConversionClass" representedClassName="ConversionClass" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="measures" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConversionMeasure" inverseName="whichClass" inverseEntity="ConversionMeasure" syncable="YES"/>
+    </entity>
+    <entity name="ConversionMeasure" representedClassName="ConversionMeasure" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="ratio" attributeType="Double" syncable="YES"/>
+        <relationship name="units" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ConversionUnit" inverseName="whichMeasure" inverseEntity="ConversionUnit" syncable="YES"/>
+        <relationship name="whichClass" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConversionClass" inverseName="measures" inverseEntity="ConversionClass" syncable="YES"/>
+    </entity>
+    <entity name="ConversionUnit" representedClassName="ConversionUnit" syncable="YES">
+        <attribute name="imageURL" attributeType="String" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="overview" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailURL" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unique" attributeType="String" syncable="YES"/>
+        <attribute name="uploadDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="value" optional="YES" attributeType="Double" syncable="YES"/>
+        <relationship name="whichMeasure" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConversionMeasure" inverseName="units" inverseEntity="ConversionMeasure" syncable="YES"/>
+    </entity>
+    <entity name="SharingComment" representedClassName="SharingComment" syncable="YES">
+        <attribute name="comment" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="conversionClass" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="convertedValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="measureName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoId" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sourceValue" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnailURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unique" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unitTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uploadDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="uploadDay" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="ConversionClass" positionX="-3789" positionY="-1026" width="128" height="73"/>
+        <element name="ConversionMeasure" positionX="-3629" positionY="-1026" width="128" height="103"/>
+        <element name="ConversionUnit" positionX="-3449" positionY="-1026" width="128" height="193"/>
+        <element name="SharingComment" positionX="-3782" positionY="-844" width="128" height="208"/>
+    </elements>
+</model>
